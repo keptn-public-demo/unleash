@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: null
+  name: unleash
+spec:
+  gateways:
+  - public-gateway.istio-system
+  - mesh
+  hosts:
+  - unleash.unleash-production.public.demo.keptn.sh
+  - unleash
+  http:
+  - route:
+    - destination:
+        host: unleash.unleash-production.svc.cluster.local
